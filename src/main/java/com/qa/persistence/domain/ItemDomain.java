@@ -11,7 +11,6 @@ public class ItemDomain {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	private String description;
 	private String completeBy;
