@@ -27,21 +27,23 @@ public class ListService {
 		return this.mapper.map(list, ListDTO.class);
 	}
 	
-	public ListDomain addList(ListDomain list) {
-		return this.listRepo.save(list);
+	public ListDTO addList(ListDomain list) {
+		ListDomain saved = this.listRepo.save(list);
+		return mapToDTO(saved);
 	}
 
-	public List<ListDomain> getAllLists() {
-		return this.listRepo.findAll().stream().collect(Collectors.toList());
+	public List<ListDTO> getAllLists() {
+		return this.listRepo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 
-	public ListDomain updateList(Long id, ListDomain list) {
+	public ListDTO updateList(Long id, ListDomain list) {
 		Optional<ListDomain> existingOptional = this.listRepo.findById(id);
 		ListDomain existing = existingOptional.get();
 
 		existing.setTitle(list.getTitle());
 
-		return this.listRepo.save(existing);
+		ListDomain updated = this.listRepo.save(existing);
+		return this.mapToDTO(updated);
 	}
 
 	public boolean removeList(Long id) {
@@ -50,8 +52,8 @@ public class ListService {
 		return !exists;
 	}
 
-	public ListDomain getOneList(Long id) {
-		return this.listRepo.findById(id).orElseThrow();
+	public ListDTO getOneList(Long id) {
+		return this.mapToDTO(listRepo.findById(id).orElseThrow());
 	}
 	
 	

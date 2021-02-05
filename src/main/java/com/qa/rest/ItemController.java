@@ -31,18 +31,18 @@ public class ItemController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<ItemDomain> createItem(@RequestBody ItemDomain item) {
-		return new ResponseEntity<ItemDomain>( this.service.addItem(item),HttpStatus.CREATED);
+	public ResponseEntity<ItemDTO> createItem(@RequestBody ItemDomain item) {
+		return new ResponseEntity<ItemDTO>( this.service.addItem(item),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getAll")
-	public ResponseEntity<List<ItemDomain>> readAll() {
-		return new ResponseEntity<List<ItemDomain>>(this.service.getAllItems(),HttpStatus.OK);
+	public ResponseEntity<List<ItemDTO>> readAll() {
+		return new ResponseEntity<List<ItemDTO>>(this.service.getAllItems(),HttpStatus.OK);
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<ItemDomain> update(@PathVariable("id") Long id, @RequestBody ItemDomain item) {
-	    return new ResponseEntity<ItemDomain>(service.updateItem(id, item),HttpStatus.ACCEPTED);
+	public ResponseEntity<ItemDTO> update(@PathVariable("id") Long id, @RequestBody ItemDomain item) {
+	    return new ResponseEntity<ItemDTO>(service.updateItem(id, item),HttpStatus.ACCEPTED);
 	}
 
 	
@@ -54,8 +54,8 @@ public class ItemController {
 	}
 	
 	@GetMapping("get/{id}")
-	public ResponseEntity<ItemDomain> readOne(@PathVariable("id") Long id) {
-		return new ResponseEntity<ItemDomain>(service.getOneItem(id),HttpStatus.OK);
+	public ResponseEntity<ItemDTO> readOne(@PathVariable("id") Long id) {
+		return new ResponseEntity<ItemDTO>(service.getOneItem(id),HttpStatus.OK);
 	}
 	
 	

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.persistence.domain.ListDomain;
+import com.qa.persistence.dtos.ListDTO;
 import com.qa.services.ListService;
 
 @RestController
@@ -30,18 +31,18 @@ public class ListController {
 	
 
 	@PostMapping("/create")
-	public ResponseEntity<ListDomain> createlist(@RequestBody ListDomain list) {
-		return new ResponseEntity<ListDomain>( this.service.addList(list),HttpStatus.CREATED);
+	public ResponseEntity<ListDTO> createlist(@RequestBody ListDomain list) {
+		return new ResponseEntity<ListDTO>(this.service.addList(list),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getAll")
-	public ResponseEntity<List<ListDomain>> readAll() {
-		return new ResponseEntity<List<ListDomain>>(this.service.getAllLists(),HttpStatus.OK);
+	public ResponseEntity<List<ListDTO>> readAll() {
+		return new ResponseEntity<List<ListDTO>>(this.service.getAllLists(),HttpStatus.OK);
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<ListDomain> update(@PathVariable("id") Long id, @RequestBody ListDomain list) {
-	    return new ResponseEntity<ListDomain>(service.updateList(id, list),HttpStatus.ACCEPTED);
+	public ResponseEntity<ListDTO> update(@PathVariable("id") Long id, @RequestBody ListDomain list) {
+	    return new ResponseEntity<ListDTO>(service.updateList(id, list),HttpStatus.ACCEPTED);
 	}
 
 	
@@ -53,7 +54,7 @@ public class ListController {
 	}
 	
 	@GetMapping("get/{id}")
-	public ResponseEntity<ListDomain> readOne(@PathVariable("id") Long id) {
-		return new ResponseEntity<ListDomain>(service.getOneList(id),HttpStatus.OK);
+	public ResponseEntity<ListDTO> readOne(@PathVariable("id") Long id) {
+		return new ResponseEntity<ListDTO>(service.getOneList(id),HttpStatus.OK);
 	}
 }
