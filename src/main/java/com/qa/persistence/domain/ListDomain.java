@@ -1,9 +1,16 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class ListDomain {
@@ -13,10 +20,15 @@ public class ListDomain {
 	private Long id;
 	private String title;
 	
-	public ListDomain(Long id, String title) {
+	@OneToMany(mappedBy = "list", fetch = FetchType.EAGER)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private List<ItemDomain> itemList;
+
+	public ListDomain(Long id, String title, List<ItemDomain> itemList) {
 		super();
 		this.id = id;
 		this.title = title;
+		this.itemList = itemList;
 	}
 
 	public ListDomain() {
@@ -38,4 +50,14 @@ public class ListDomain {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public List<ItemDomain> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(List<ItemDomain> itemList) {
+		this.itemList = itemList;
+	}
+	
+	
 }

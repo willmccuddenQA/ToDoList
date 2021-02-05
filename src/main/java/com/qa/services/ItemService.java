@@ -8,19 +8,23 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.qa.persistence.domain.ItemDomain;
+import com.qa.persistence.domain.ListDomain;
 import com.qa.persistence.dtos.ItemDTO;
 import com.qa.persistence.repos.ItemRepo;
+import com.qa.persistence.repos.ListRepo;
 
 @Service
 public class ItemService {
 
 	private ItemRepo itemRepo;
 	private ModelMapper mapper;
+	private ListRepo listRepo;
 
-	ItemService(ItemRepo itemRepo, ModelMapper mapper) {
+	ItemService(ItemRepo itemRepo, ModelMapper mapper, ListRepo listRepo) {
 		super();
 		this.itemRepo = itemRepo;
 		this.mapper = mapper;
+		this.listRepo = listRepo;
 	}
 
 	private ItemDTO mapToDTO(ItemDomain item) {
@@ -29,6 +33,13 @@ public class ItemService {
 
 	public ItemDomain addItem(ItemDomain item) {
 		return this.itemRepo.save(item);
+		
+//		Optional<ListDomain> listOptional = this.listRepo.findById(item.getMyListId());
+//		ListDomain list = listOptional.get();
+//		ItemDomain itemWithList = item;
+//		itemWithList.setList(list);
+//		return this.itemRepo.save(itemWithList);
+		
 		// ItemDomain saved = this.itemRepo.save(item);
 		// return this.mapToDTO(saved);
 	}
@@ -45,7 +56,7 @@ public class ItemService {
 		existing.setDescription(item.getDescription());
 		existing.setCompleteBy(item.getCompleteBy());
 		existing.setCompleteStatus(item.getCompleteStatus());
-		existing.setList_id(item.getList_id());
+		existing.setList(item.getList());
 
 		return this.itemRepo.save(existing);
 

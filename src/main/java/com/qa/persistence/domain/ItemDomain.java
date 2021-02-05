@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.SQLInsert;
 
 @Entity
 public class ItemDomain {
@@ -14,15 +18,18 @@ public class ItemDomain {
 	private String description;
 	private String completeBy;
 	private Boolean completeStatus;
-	private Long list_id;
 	
-	public ItemDomain(Long id, String description, String completeBy, Boolean completeStatus, Long list_id) {
+	@ManyToOne
+	@JoinColumn(name = "list_id")
+	private ListDomain list;
+
+	public ItemDomain(Long id, String description, String completeBy, Boolean completeStatus, ListDomain list) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.completeBy = completeBy;
 		this.completeStatus = completeStatus;
-		this.list_id = list_id;
+		this.list = list;
 	}
 
 	public ItemDomain() {
@@ -61,12 +68,14 @@ public class ItemDomain {
 		this.completeStatus = completeStatus;
 	}
 
-	public Long getList_id() {
-		return list_id;
+	public ListDomain getList() {
+		return list;
 	}
 
-	public void setList_id(Long list_id) {
-		this.list_id = list_id;
+	public void setList(ListDomain list) {
+		this.list = list;
 	}
+	
+	
 	
 }
