@@ -22,7 +22,7 @@ public class ItemDomain {
 	@JoinColumn(name = "list_id")
 	private ListDomain list;
 
-	public ItemDomain(Long id, String description, String completeBy, Boolean completeStatus, ListDomain list) {
+	public ItemDomain(Long id, String description, String completeBy, boolean completeStatus, ListDomain list) {
 		super();
 		this.id = id;
 		this.description = description;

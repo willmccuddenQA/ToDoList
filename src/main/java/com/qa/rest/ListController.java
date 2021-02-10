@@ -31,7 +31,7 @@ public class ListController {
 	
 
 	@PostMapping("/create")
-	public ResponseEntity<ListDTO> createlist(@RequestBody ListDomain list) {
+	public ResponseEntity<ListDTO> create(@RequestBody ListDomain list) {
 		return new ResponseEntity<ListDTO>(this.service.addList(list),HttpStatus.CREATED);
 	}
 	

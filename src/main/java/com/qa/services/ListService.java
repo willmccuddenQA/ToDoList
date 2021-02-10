@@ -39,16 +39,17 @@ public class ListService {
 	public ListDTO updateList(Long id, ListDomain list) {
 		Optional<ListDomain> existingOptional = this.listRepo.findById(id);
 		ListDomain existing = existingOptional.get();
-
+		
 		existing.setTitle(list.getTitle());
 
-		ListDomain updated = this.listRepo.save(existing);
+		ListDomain updated = this.listRepo.save(existing); 
+		
 		return this.mapToDTO(updated);
 	}
 
 	public boolean removeList(Long id) {
 		this.listRepo.deleteById(id);
-		boolean exists = this.listRepo.existsById(id);
+		boolean exists = this.listRepo.existsById(id); 
 		return !exists;
 	}
 
