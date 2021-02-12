@@ -1,8 +1,8 @@
 package com.qa.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.modelmapper.ModelMapper;
 
 @Configuration
 public class AppConfig {
@@ -11,4 +11,5 @@ public class AppConfig {
     public ModelMapper mapper() {
         return new ModelMapper();
     }
+	
 }
