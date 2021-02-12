@@ -4,10 +4,12 @@ package com.qa.persistence.dtos;
 public class ListDTO {
 
 	private String title;
+	private Long id;
 
-	public ListDTO(String title) {
+	public ListDTO(String title, Long id) {
 		super();
 		this.title = title;
+		this.id = id;
 	}
 
 	public ListDTO() {
@@ -21,4 +23,14 @@ public class ListDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }
