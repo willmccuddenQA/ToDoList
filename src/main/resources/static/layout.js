@@ -25,9 +25,8 @@ const startUp = () => {
 				console.log(`response is OK (200)`);
 				//json-ify it (which returns a promise)
 				response.json().then((infofromserver) => {
+					//console.log(infofromserver.data); // key - return array(6)
 					for (let list of infofromserver) {
-						let listID = list.id;
-						listsArray.push(list)
 						
 						//create list item and add to list
 						let listElement = document.createElement("li");
