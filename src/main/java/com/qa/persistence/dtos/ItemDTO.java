@@ -5,17 +5,23 @@ public class ItemDTO {
 	private String description;
 	private String completeBy;
 	private Boolean completeStatus;
+	private Long id;
+	private ListDTO list;
+	
+	public ItemDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	public ItemDTO(String description, String completeBy, Boolean completeStatus) {
+	public ItemDTO(String description, String completeBy, Boolean completeStatus, Long id, ListDTO list) {
 		super();
 		this.description = description;
 		this.completeBy = completeBy;
 		this.completeStatus = completeStatus;
+		this.id = id;
+		this.list = list;
 	}
 
-	public ItemDTO() {
-		super();
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -39,4 +45,22 @@ public class ItemDTO {
 	public void setCompleteStatus(Boolean completeStatus) {
 		this.completeStatus = completeStatus;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ListDTO getList() {
+		return list;
+	}
+
+	public void setList(ListDTO list) {
+		this.list = list;
+	}
+
+	
 }
