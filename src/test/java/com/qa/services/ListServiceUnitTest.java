@@ -32,7 +32,7 @@ public class ListServiceUnitTest {
 	public void create() {
 		//RESOURCES
 		ListDomain entry = new ListDomain(1L,"Important List",null);
-		ListDTO expectedResult = new ListDTO("Important List");
+		ListDTO expectedResult = new ListDTO(1L,"Important List");
 		
 		//RULES
 		Mockito.when(this.mockRepo.save(entry)).thenReturn(entry); 
@@ -54,8 +54,8 @@ public class ListServiceUnitTest {
 		// RESOURCES
 		ListDomain entry1 = new ListDomain(1L,"Important List",null);
 		ListDomain entry2 = new ListDomain(2L,"Less Important List",null);
-		ListDTO DTO1 = new ListDTO("Important List");
-		ListDTO DTO2 = new ListDTO("Important List");
+		ListDTO DTO1 = new ListDTO(1L,"Important List");
+		ListDTO DTO2 = new ListDTO(2L,"Less Important List");
 
 		List<ListDomain> entries = new ArrayList<>();
 		entries.add(entry1);
@@ -86,7 +86,7 @@ public class ListServiceUnitTest {
 	public void readOne() {
 		// RESOURCES
 		ListDomain entry = new ListDomain(1L,"Important List",null);
-		ListDTO expectedResult = new ListDTO("Important List");
+		ListDTO expectedResult = new ListDTO(1L,"Important List");
 
 		// RULES
 		Mockito.when(this.mockRepo.findById(entry.getId())).thenReturn(Optional.of(entry));
@@ -124,7 +124,7 @@ public class ListServiceUnitTest {
 		// RESOURCES
 		ListDomain entry = new ListDomain(1L,"Important List",null);
 		ListDomain updated = new ListDomain(1L,"Important List Updated",null);
-		ListDTO expectedResult = new ListDTO("Important List Updated");
+		ListDTO expectedResult = new ListDTO(1L,"Important List Updated");
 
 		// RULES
 		Mockito.when(this.mockRepo.findById(1L)).thenReturn(Optional.of(entry)); 

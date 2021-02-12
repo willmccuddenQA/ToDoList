@@ -31,7 +31,7 @@ public class ItemServiceUnitTest {
 	public void create() {
 		//RESOURCES
 		ItemDomain entry = new ItemDomain(1L,"Go to shop","Tomorrow",false,null);
-		ItemDTO expectedResult = new ItemDTO("Go to shop","Tomorrow",false);
+		ItemDTO expectedResult = new ItemDTO(1L,"Go to shop","Tomorrow",false,null);
 		
 		//RULES
 		Mockito.when(this.mockRepo.save(entry)).thenReturn(entry); 
@@ -53,8 +53,8 @@ public class ItemServiceUnitTest {
 		// RESOURCES
 		ItemDomain entry1 = new ItemDomain(1L,"Go to shop","Tomorrow",false,null);
 		ItemDomain entry2 = new ItemDomain(2L,"Go to shop","Next Week",false,null);
-		ItemDTO DTO1 = new ItemDTO("Go to shop","Tomorrow",false);
-		ItemDTO DTO2 = new ItemDTO("Go to shop","Next Week",false);
+		ItemDTO DTO1 = new ItemDTO(1L,"Go to shop","Tomorrow",false,null);
+		ItemDTO DTO2 = new ItemDTO(2L,"Go to shop","Next Week",false,null);
 
 		List<ItemDomain> entries = new ArrayList<>();
 		entries.add(entry1);
@@ -85,7 +85,7 @@ public class ItemServiceUnitTest {
 	public void readOne() {
 		// RESOURCES
 		ItemDomain entry = new ItemDomain(1L,"Go to shop","Tomorrow",false,null);
-		ItemDTO expectedResult = new ItemDTO("Go to shop","Tomorrow",false);
+		ItemDTO expectedResult = new ItemDTO(1L,"Go to shop","Tomorrow",false,null);
 
 		// RULES
 		Mockito.when(this.mockRepo.findById(entry.getId())).thenReturn(Optional.of(entry));
@@ -123,7 +123,7 @@ public class ItemServiceUnitTest {
 		// RESOURCES
 		ItemDomain entry = new ItemDomain(1L,"Go to shop","Tomorrow",false,null);
 		ItemDomain updated = new ItemDomain(1L,"Go to shop","Next Week",false,null);
-		ItemDTO expectedResult = new ItemDTO("Go to shop","Next Week",false);
+		ItemDTO expectedResult = new ItemDTO(1L,"Go to shop","Next Week",false,null);
 
 		// RULES
 		Mockito.when(this.mockRepo.findById(1L)).thenReturn(Optional.of(entry)); 
