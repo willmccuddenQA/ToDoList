@@ -13,7 +13,7 @@ public class ItemDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemDTO(String description, String completeBy, Boolean completeStatus, Long id, ListDTO list) {
+	public ItemDTO(Long id, String description, String completeBy, Boolean completeStatus, ListDTO list) {
 		super();
 		this.description = description;
 		this.completeBy = completeBy;

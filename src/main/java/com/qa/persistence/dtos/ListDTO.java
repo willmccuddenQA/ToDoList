@@ -6,7 +6,7 @@ public class ListDTO {
 	private String title;
 	private Long id;
 
-	public ListDTO(String title, Long id) {
+	public ListDTO(Long id, String title) {
 		super();
 		this.title = title;
 		this.id = id;
