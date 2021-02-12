@@ -33,7 +33,7 @@ public class ItemControllerUnitTest {
 	public void create() {
 		// RESOURCES
 		ItemDomain entry = new ItemDomain(1L, "Go to shop", "Tomorrow", false, null);
-		ItemDTO storedDTO = new ItemDTO("Go to shop", "Tomorrow", false);
+		ItemDTO storedDTO = new ItemDTO(1L,"Go to shop", "Tomorrow", false,null);
 		ResponseEntity<ItemDTO> expectedResult = new ResponseEntity<ItemDTO>(storedDTO,HttpStatus.CREATED);
 
 		// RULES
@@ -53,8 +53,8 @@ public class ItemControllerUnitTest {
 	public void readAll() {
 
 		// RESOURCES
-		ItemDTO DTO1 = new ItemDTO("Go to shop", "Tomorrow", false);
-		ItemDTO DTO2 = new ItemDTO("Go to shop", "Next Week", false);
+		ItemDTO DTO1 = new ItemDTO(1L, "Go to shop", "Tomorrow", false, null);
+		ItemDTO DTO2 = new ItemDTO(2L,"Go to shop", "Next Week", false, null);
 		List<ItemDTO> storedDTOs = new ArrayList<>();
 		storedDTOs.add(DTO1);
 		storedDTOs.add(DTO2);
@@ -76,7 +76,7 @@ public class ItemControllerUnitTest {
 	@Test
 	public void readOne() {
 		// RESOURCES
-		ItemDTO storedDTO = new ItemDTO("Go to shop", "Tomorrow", false);
+		ItemDTO storedDTO = new ItemDTO(1L, "Go to shop", "Tomorrow", false, null);
 		ResponseEntity<ItemDTO> expectedResult = new ResponseEntity<ItemDTO>(storedDTO,HttpStatus.OK);
 
 		// RULES
@@ -114,7 +114,7 @@ public class ItemControllerUnitTest {
 	public void update() {
 		// RESOURCES
 		ItemDomain entry = new ItemDomain(1L, "Go to shop", "Tomorrow", false, null);
-		ItemDTO storedDTO = new ItemDTO("Go to shop", "Tomorrow", false);
+		ItemDTO storedDTO = new ItemDTO(1L, "Go to shop", "Tomorrow", false, null);
 		ResponseEntity<ItemDTO> expectedResult = new ResponseEntity<ItemDTO>(storedDTO,HttpStatus.ACCEPTED);
 
 		// RULES

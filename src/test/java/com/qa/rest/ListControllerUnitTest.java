@@ -33,7 +33,7 @@ public class ListControllerUnitTest {
 	public void create() {
 		// RESOURCES
 		ListDomain entry = new ListDomain(1L, "Tomorrow's list", null);
-		ListDTO storedDTO = new ListDTO("Tomorrow's list");
+		ListDTO storedDTO = new ListDTO(1L, "Tomorrow's list");
 		ResponseEntity<ListDTO> expectedResult = new ResponseEntity<ListDTO>(storedDTO, HttpStatus.CREATED);
 
 		// RULES
@@ -53,8 +53,8 @@ public class ListControllerUnitTest {
 	public void readAll() {
 
 		// RESOURCES
-		ListDTO expectedResult1 = new ListDTO("Tomorrow's list");
-		ListDTO expectedResult2 = new ListDTO("Today's list");
+		ListDTO expectedResult1 = new ListDTO(1L,"Tomorrow's list");
+		ListDTO expectedResult2 = new ListDTO(2L,"Today's list");
 		List<ListDTO> storedDTOs = new ArrayList<>();
 		storedDTOs.add(expectedResult1);
 		storedDTOs.add(expectedResult2);
@@ -76,7 +76,7 @@ public class ListControllerUnitTest {
 	@Test
 	public void readOne() {
 		// RESOURCES
-		ListDTO storedDTO = new ListDTO("Tomorrow's list");
+		ListDTO storedDTO = new ListDTO(1L,"Tomorrow's list");
 		ResponseEntity<ListDTO> expectedResult = new ResponseEntity<ListDTO>(storedDTO, HttpStatus.OK);
 
 		// RULES
@@ -114,7 +114,7 @@ public class ListControllerUnitTest {
 	public void update() {
 		// RESOURCES
 		ListDomain entry = new ListDomain(1L, "Tomorrow's list", null);
-		ListDTO storedDTO = new ListDTO("Tomorrow's list");
+		ListDTO storedDTO = new ListDTO(1L,"Tomorrow's list");
 		ResponseEntity<ListDTO> expectedResult = new ResponseEntity<ListDTO>(storedDTO,HttpStatus.ACCEPTED);
 
 		// RULES
