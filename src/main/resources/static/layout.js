@@ -26,9 +26,7 @@ const startUp = () => {
 				//json-ify it (which returns a promise)
 				response.json().then((infofromserver) => {
 					for (let list of infofromserver) {
-						console.log(list);
 						let listID = list.id;
-						console.log(listID);
 						listsArray.push(list)
 						
 						//create list item and add to list
