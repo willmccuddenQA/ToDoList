@@ -380,6 +380,7 @@ const viewItems = (viewListID) => {
 							itemTitleDiv.setAttribute("id", "itemTitle" + item.id);
 							itemTitleDiv.setAttribute("class", "col-3");
 							let title = document.createElement("h5");
+							title.setAttribute("id","itemTitle"+item.id);
 							let titleText = document.createTextNode(`${item.description}`);
 							containerRow1.appendChild(itemTitleDiv);
 							itemTitleDiv.appendChild(title);
@@ -487,9 +488,10 @@ const startUp = () => {
 
 						//create title text
 						let listTitleDiv = document.createElement("div");
-						listTitleDiv.setAttribute("id", "listTitle" + list.id);
+						listTitleDiv.setAttribute("id", "listTitleDiv" + list.id);
 						listTitleDiv.setAttribute("class", "col-9");
 						let title = document.createElement("h4");
+						title.setAttribute("id","listTitle" +list.id);
 						let titleText = document.createTextNode(`${list.title}`);
 						containerRow.appendChild(listTitleDiv);
 						listTitleDiv.appendChild(title);

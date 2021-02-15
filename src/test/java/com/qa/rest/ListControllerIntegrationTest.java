@@ -36,94 +36,94 @@ public class ListControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper jsonifier;
 	
-//	@Test
-//	public void create() throws Exception {
-//
-//		// resources
-//		ListDomain entry = new ListDomain(4L,"Next Week",null);
-//		ListDTO expectedResult = new ListDTO("Next Week");
-//
-//		// set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-//				.request(HttpMethod.POST, "http://localhost:8080/list/create").contentType(MediaType.APPLICATION_JSON)
-//				.content(jsonifier.writeValueAsString(entry)).accept(MediaType.APPLICATION_JSON);
-//
-//		// set up action
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isCreated();
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//
-//		// Perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
-//	}
-//	
-//	@Test
-//	public void readAll() throws Exception {
-//		// resources
-//		List<ListDTO> expectedResult = new ArrayList<>();
-//		expectedResult.add(new ListDTO("Todays jobs"));
-//		expectedResult.add(new ListDTO("Targets for the year"));
-//		expectedResult.add(new ListDTO("Shopping List"));
-//
-//		// set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
-//				"http://localhost:8080/list/getAll");
-//
-//		// set up action
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//
-//		// Perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
-//	}
-//	
-//	@Test
-//	public void update() throws Exception {
-//		// resources
-//		ListDomain entry = new ListDomain(3L,"Next Week",null);
-//		ListDTO expectedResult = new ListDTO("Next Week");
-//
-//		// set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-//				.request(HttpMethod.PUT, "http://localhost:8080/list/update/3").contentType(MediaType.APPLICATION_JSON)
-//				.content(jsonifier.writeValueAsString(entry)).accept(MediaType.APPLICATION_JSON);
-//
-//		// set up action
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//
-//		// Perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
-//	}
-//	
-//	@Test
-//	public void delete() throws Exception {
-//		
-//		// set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-//				.request(HttpMethod.DELETE, "http://localhost:8080/list/delete/1");
-//
-//		// set up action
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();;
-//
-//		// Perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus);
-//	}
-//	
-//	@Test
-//	public void readOne() throws Exception {
-//
-//		// resources
-//		ListDTO expectedResult = new ListDTO("Todays jobs");
-//
-//		// set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
-//				"http://localhost:8080/list/get/" + 1);
-//
-//		// set up action
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//
-//		// Perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
-//	}
+	@Test
+	public void create() throws Exception {
+
+		// resources
+		ListDomain entry = new ListDomain(4L,"Next Week",null);
+		ListDTO expectedResult = new ListDTO(4L,"Next Week");
+
+		// set up request
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.POST, "http://localhost:8080/list/create").contentType(MediaType.APPLICATION_JSON)
+				.content(jsonifier.writeValueAsString(entry)).accept(MediaType.APPLICATION_JSON);
+
+		// set up action
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isCreated();
+		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+
+		// Perform
+		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
+	}
+	
+	@Test
+	public void readAll() throws Exception {
+		// resources
+		List<ListDTO> expectedResult = new ArrayList<>();
+		expectedResult.add(new ListDTO(1L,"Todays jobs"));
+		expectedResult.add(new ListDTO(2L,"Targets for the year"));
+		expectedResult.add(new ListDTO(3L,"Shopping List"));
+
+		// set up request
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
+				"http://localhost:8080/list/getAll");
+
+		// set up action
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+
+		// Perform
+		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
+	}
+	
+	@Test
+	public void update() throws Exception {
+		// resources
+		ListDomain entry = new ListDomain(3L,"Next Week",null);
+		ListDTO expectedResult = new ListDTO(3L,"Next Week");
+
+		// set up request
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.PUT, "http://localhost:8080/list/update/3").contentType(MediaType.APPLICATION_JSON)
+				.content(jsonifier.writeValueAsString(entry)).accept(MediaType.APPLICATION_JSON);
+
+		// set up action
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
+		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+
+		// Perform
+		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
+	}
+	
+	@Test
+	public void delete() throws Exception {
+		
+		// set up request
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.DELETE, "http://localhost:8080/list/delete/1");
+
+		// set up action
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();;
+
+		// Perform
+		this.mock.perform(mockRequest).andExpect(matchStatus);
+	}
+	
+	@Test
+	public void readOne() throws Exception {
+
+		// resources
+		ListDTO expectedResult = new ListDTO(1L,"Todays jobs");
+
+		// set up request
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
+				"http://localhost:8080/list/get/" + 1);
+
+		// set up action
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+
+		// Perform
+		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
+	}
 }
