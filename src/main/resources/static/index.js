@@ -229,7 +229,7 @@ const createList = () => {
 		})
 		.catch(err => console.error('ERROR!' + err));
 	allLists.innerHTML = "";
-	setTimeout(() => { startUp(); }, 200);
+	setTimeout(() => { startUp(); }, 300);
 }
 
 const showCreateListInput = () => {
